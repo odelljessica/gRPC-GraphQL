@@ -11,7 +11,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Setter
 @Getter
-
 @Entity
 @Table(name = "wiringInstructions")
 public class WiringInstruction {
