@@ -1,0 +1,12 @@
+## Files
+*.iml
+*.idea
+*.project
+*.classpath
+
+## Dirs
+.settings
+target
+bin
+
+

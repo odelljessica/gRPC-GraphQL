@@ -1,0 +1,50 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    getWiringInstructions: [WiringInstruction]
+    getWiringInstruction(id: Int): WiringInstruction
+}
+
+type WiringInstruction {
+    id: Int
+    name: String
+    bankName: String
+    abaNumber: Int
+    swift: String
+    forAccountOf: String
+    accountNumber: String
+    inFavourOf: String
+    inFavourOfAccountNumber: String
+    bank: Bank
+    products: [Product]
+}
+
+type Bank {
+    id: Int
+    commonName: String
+}
+
+type Product {
+    id: Int
+    description: String
+    value: String
+}
+
+type Mutation {
+  addWiringInstruction(input: WiringInstructionInput): WiringInstruction
+}
+
+input WiringInstructionInput {
+    name: String
+    bankName: String
+    abaNumber: Int
+    swift: String
+    forAccountOf: String
+    accountNumber: String
+    inFavourOf: String
+    inFavourOfAccountNumber: String
+}
+

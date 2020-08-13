@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.personal.models";
+option java_outer_classname = "GraphQLServiceProto";
+
+message GraphQLRequest {
+    string query = 1;
+}
+
+message GraphQLResponse {
+    QueryType data = 1;
+}
+
+service QuasarGraphQLService {
+    rpc Execute (GraphQLRequest) returns (stream GraphQLResponse) {
+    }
+}
+
+service AladdinGraphQLService {
+    rpc Execute (GraphQLRequest) returns (stream GraphQLResponse) {
+    }
+}
+
+message QueryType {
+    WiringInstruction get_wiring_instruction = 1;
+    repeated WiringInstruction get_wiring_instructions = 2;
+}
+
+
+message WiringInstruction {
+    string name = 1;
+    string bank_name = 2;
+    int64 id = 3;
+    int64 aba_number = 4;
+    string swift = 5;
+    string for_account_of = 6;
+    string account_number = 7;
+    string in_favour_of = 8;
+    string in_favour_of_account_number = 9;
+    int64 bank_id = 10;
+    Bank bank = 11;
+    repeated Product products = 12;
+}
+
+message Bank {
+    int64 id = 1;
+    string common_name = 2;
+}
+
+message Product {
+    int64 id = 1;
+    string description = 2;
+    string value = 3;
+}
